@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios con estructuras de control FOR</title>
+</head>
+<body>
+    <h1>Ejercicios con estructuras de control FOR</h1>
+
+    <!-- Ejercicio 1: Números impares del 1 al 50 -->
+    <h2>1. Números impares del 1 al 50</h2>
+    <div id="impares"></div>
+
+    <!-- Ejercicio 2: Nombres de Pokémon múltiplos de 5 -->
+    <h2>2. Nombres de Pokémon cuyos números son múltiplos de 5</h2>
+    <input type="number" id="userNumber" placeholder="Ingresa un número">
+    <button onclick="mostrarPokemons()">Mostrar Pokémons</button>
+    <div id="pokemons"></div>
+
+    <!-- Ejercicio 3: Mostrar elementos numéricos de un arreglo -->
+    <h2>3. Mostrar elementos numéricos del arreglo</h2>
+    <div id="numeros"></div>
+
+    <script>
+        // Ejercicio 1: Imprimir números impares del 1 al 50
+        const imparContainer = document.getElementById("impares");
+        for (let i = 1; i <= 50; i++) {
+            if (i % 2 !== 0) {
+                imparContainer.innerHTML += i + " ";
+            }
+        }
+
+        // Ejercicio 2: Mostrar nombres de Pokémon cuyos números son múltiplos de 5
+        const pokemons = {
+            1: "Bulbasaur",
+            2: "Ivysaur",
+            3: "Venusaur",
+            4: "Charmander",
+            5: "Charmeleon",
+            6: "Charizard",
+            7: "Squirtle",
+            8: "Wartortle",
+            9: "Blastoise",
+            10: "Caterpie",
+            // Agrega más Pokémons según el archivo original...
+        };
+
+        function mostrarPokemons() {
+            const userNumber = parseInt(document.getElementById("userNumber").value);
+            const pokemonContainer = document.getElementById("pokemons");
+            pokemonContainer.innerHTML = ""; // Limpiar contenido previo
+
+            for (let num in pokemons) {
+                if (num <= userNumber && num % 5 === 0) {
+                    pokemonContainer.innerHTML += pokemons[num] + "<br>";
+                }
+            }
+        }
+
+        // Ejercicio 3: Mostrar solo elementos numéricos de un arreglo
+        const arreglo = [4, "dos", 8, "tres", 5, 9, 1, "cero"];
+        const numerosContainer = document.getElementById("numeros");
+        
+        for (let i = 0; i < arreglo.length; i++) {
+            if (typeof arreglo[i] === "number") {
+                numerosContainer.innerHTML += arreglo[i] + " ";
+            }
+        }
+    </script>
+</body>
+</html>
